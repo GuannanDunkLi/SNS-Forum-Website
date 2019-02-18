@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niuke.forum.dao.QuestionDAO">
+    <sql id="table">question</sql>
+    <sql id="selectFields">id, title, content, user_id, created_date, comment_count</sql>
+    <select id="selectLatestQuestions" resultType="com.niuke.forum.model.Question">
+        SELECT
+        <include refid="selectFields"/>
+
+        FROM
+        <include refid="table"/>
+
+        <if test="user_id != 0">
+            WHERE user_id = #{user_id}
+        </if>
+
+        ORDER BY id DESC
+
+        LIMIT #{offset},#{limit}
+    </select>
+</mapper>
