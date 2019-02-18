@@ -125,35 +125,35 @@ public class JedisAdapter implements InitializingBean {
         return null;
     }
 
-    public long zadd(String key, double score, String value) {
-        Jedis jedis = null;
-        try {
-            jedis = pool.getResource();
-            return jedis.zadd(key, score, value);
-        } catch (Exception e) {
-            logger.error("发生异常" + e.getMessage());
-        } finally {
-            if (jedis != null) {
-                jedis.close();
-            }
-        }
-        return 0;
-    }
+//    public long zadd(String key, double score, String value) {
+//        Jedis jedis = null;
+//        try {
+//            jedis = pool.getResource();
+//            return jedis.zadd(key, score, value);
+//        } catch (Exception e) {
+//            logger.error("发生异常" + e.getMessage());
+//        } finally {
+//            if (jedis != null) {
+//                jedis.close();
+//            }
+//        }
+//        return 0;
+//    }
 
-    public long zrem(String key, String value) {
-        Jedis jedis = null;
-        try {
-            jedis = pool.getResource();
-            return jedis.zrem(key, value);
-        } catch (Exception e) {
-            logger.error("发生异常" + e.getMessage());
-        } finally {
-            if (jedis != null) {
-                jedis.close();
-            }
-        }
-        return 0;
-    }
+//    public long zrem(String key, String value) {
+//        Jedis jedis = null;
+//        try {
+//            jedis = pool.getResource();
+//            return jedis.zrem(key, value);
+//        } catch (Exception e) {
+//            logger.error("发生异常" + e.getMessage());
+//        } finally {
+//            if (jedis != null) {
+//                jedis.close();
+//            }
+//        }
+//        return 0;
+//    }
 
     public Jedis getJedis() {
         return pool.getResource();
@@ -169,6 +169,7 @@ public class JedisAdapter implements InitializingBean {
         return null;
     }
 
+    // list中的每一个object对应一个操作的返回值
     public List<Object> exec(Transaction tx, Jedis jedis) {
         try {
             return tx.exec();
@@ -180,10 +181,8 @@ public class JedisAdapter implements InitializingBean {
                 try {
                     tx.close();
                 } catch (IOException ioe) {
-                    // ..
                 }
             }
-
             if (jedis != null) {
                 jedis.close();
             }
@@ -191,20 +190,20 @@ public class JedisAdapter implements InitializingBean {
         return null;
     }
 
-    public Set<String> zrange(String key, int start, int end) {
-        Jedis jedis = null;
-        try {
-            jedis = pool.getResource();
-            return jedis.zrange(key, start, end);
-        } catch (Exception e) {
-            logger.error("发生异常" + e.getMessage());
-        } finally {
-            if (jedis != null) {
-                jedis.close();
-            }
-        }
-        return null;
-    }
+//    public Set<String> zrange(String key, int start, int end) {
+//        Jedis jedis = null;
+//        try {
+//            jedis = pool.getResource();
+//            return jedis.zrange(key, start, end);
+//        } catch (Exception e) {
+//            logger.error("发生异常" + e.getMessage());
+//        } finally {
+//            if (jedis != null) {
+//                jedis.close();
+//            }
+//        }
+//        return null;
+//    }
 
     public Set<String> zrevrange(String key, int start, int end) {
         Jedis jedis = null;
