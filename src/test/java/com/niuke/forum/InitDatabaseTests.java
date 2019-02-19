@@ -2,10 +2,10 @@ package com.niuke.forum;
 
 import com.niuke.forum.dao.QuestionDAO;
 import com.niuke.forum.dao.UserDAO;
-//import com.springboot.springboot.model.EntityType;
+import com.niuke.forum.model.EntityType;
 import com.niuke.forum.model.Question;
 import com.niuke.forum.model.User;
-//import com.springboot.springboot.service.FollowService;
+import com.niuke.forum.service.FollowService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +24,8 @@ public class InitDatabaseTests {
 	UserDAO userDAO;
 	@Autowired
 	QuestionDAO questionDAO;
-//	@Autowired
-//	FollowService followService;
+	@Autowired
+	FollowService followService;
 
 	@Test
 	public void initDatabase() {
@@ -39,13 +39,13 @@ public class InitDatabaseTests {
 			user.setSalt("");
 			userDAO.addUser(user);
 
-//			//互相关注的测试数据的生成
-//			for (int j = 0; j< i; ++j){
-//				followService.follow(j, i, EntityType.ENTITY_USER);
-//			}
+			//互相关注的测试数据的生成
+			for (int j = 0; j< i; ++j){
+				followService.follow(j+1, EntityType.ENTITY_USER, i+1);
+			}
 
 			Question question = new Question();
-			question.setCommentCount(i);
+			question.setCommentCount(i+1);
 			Date date = new Date();
 			date.setTime(date.getTime() + 60*60*1000*i);
 			question.setCreatedDate(date);

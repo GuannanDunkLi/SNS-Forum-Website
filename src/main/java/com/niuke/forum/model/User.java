@@ -35,8 +35,8 @@ public class User {
         return head_url;
     }
 
-    public void setHeadUrl(String head_url) {
-        this.head_url = head_url;
+    public void setHeadUrl(String headUrl) {
+        this.head_url = headUrl;
     }
 
     public String getName() {

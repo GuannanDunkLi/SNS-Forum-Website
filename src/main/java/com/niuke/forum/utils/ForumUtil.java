@@ -10,9 +10,9 @@ import java.util.Map;
 public class ForumUtil {
     private static final Logger logger = LoggerFactory.getLogger(ForumUtil.class);
     // 默认的游客id
-    public static int ANONYMOUS_USERID = 1;
+    public static int ANONYMOUS_USERID = 0;
     // 系统管理员id
-    public static int SYSTEMCONTROLLER_USERID = 0;
+    public static int SYSTEMCONTROLLER_USERID = 1;
 
     // Json返回格式封装,所有返回json前端js都有对应处理
     public static String getJsonString(int code) {

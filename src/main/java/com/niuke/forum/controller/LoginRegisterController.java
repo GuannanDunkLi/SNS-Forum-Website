@@ -76,7 +76,7 @@ public class LoginRegisterController {
 //                eventProducer.fireEvent(new EventModel(EventType.LOGIN)
 //                        .setExts("username", username).setExts("email", "1390505180@qq.com"));
 //                // .setActorId((int)map.get("user_id")));          //用户登陆完之后判断是谁登录的
-//                 当读取到的next字段不为空的话跳转
+                // 当读取到的next字段不为空的话跳转
                 if (!StringUtils.isEmpty(next)) {
                     return "redirect:" + next;
                 }

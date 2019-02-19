@@ -174,34 +174,34 @@
                 <div th:utext="${question.content}" class="zm-editable-content"></div>
             </div>
             <div class="zm-side-section">
-                <!--<div class="zm-side-section-inner" id="zh-question-side-header-wrap">-->
+                <div class="zm-side-section-inner" id="zh-question-side-header-wrap">
 
 
-                    <!--<button th:if="${followed}" th:attr="data-id=${question.id}" class="follow-button zg-follow zg-btn-white js-follow-question" data-id=""-->
-                            <!--data-status="1">-->
-                        <!--取消关注-->
-                    <!--</button>-->
+                    <button th:if="${followed}" th:attr="data-id=${question.id}" class="follow-button zg-follow zg-btn-white js-follow-question" data-id=""
+                            data-status="1">
+                        取消关注
+                    </button>
 
-                    <!--<button th:if="${!followed}" th:attr="data-id=${question.id}" class="follow-button zg-follow zg-btn-green js-follow-question" data-id="">-->
-                        <!--关注问题-->
-                    <!--</button>-->
+                    <button th:if="${!followed}" th:attr="data-id=${question.id}" class="follow-button zg-follow zg-btn-green js-follow-question" data-id="">
+                        关注问题
+                    </button>
 
-                    <!--<div class="zh-question-followers-sidebar">-->
-                        <!--<div class="zg-gray-normal">-->
-                            <!--<a href="">-->
-                                <!--<strong th:text="${#lists.size(followUsers)}">9</strong></a>人关注该问题-->
-                        <!--</div>-->
-                        <!--<div class="list zu-small-avatar-list zg-clear">-->
+                    <div class="zh-question-followers-sidebar">
+                        <div class="zg-gray-normal">
+                            <a href="">
+                                <strong th:text="${#lists.size(followUsers)}">9</strong></a>人关注该问题
+                        </div>
+                        <div class="list zu-small-avatar-list zg-clear">
 
-                            <!--<a th:each="followUser:${followUsers}" th:href="'/user/'+${followUser.get('id')}" data-tip="p$b$yi-yi-98-91-99" class="zm-item-link-avatar" href=""-->
-                               <!--th:attr="data-original_title=${followUser.get('name')}" data-original_title="奕奕">-->
-                                <!--<img th:src="${followUser.get('headUrl')}" src=""-->
-                                     <!--class="zm-item-img-avatar">-->
-                            <!--</a>-->
+                            <a th:each="followUser:${followUsers}" th:href="'/user/'+${followUser.get('id')}" data-tip="p$b$yi-yi-98-91-99" class="zm-item-link-avatar" href=""
+                               th:attr="data-original_title=${followUser.get('name')}" data-original_title="奕奕">
+                                <img th:src="${followUser.get('headUrl')}" src=""
+                                     class="zm-item-img-avatar">
+                            </a>
 
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="zh-question-answer-wrap" data-pagesize="10" class="zh-question-answer-wrapper navigable"
                  data-widget="navigable" data-navigable-options="{&quot;items&quot;: &quot;&gt;.zm-item-answer&quot;}"

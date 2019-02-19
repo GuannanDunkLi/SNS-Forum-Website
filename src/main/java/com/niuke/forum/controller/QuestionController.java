@@ -19,8 +19,6 @@ import java.util.List;
 
 @Controller
 public class QuestionController {
-    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-
     @Autowired
     QuestionService questionService;
     @Autowired
@@ -29,16 +27,16 @@ public class QuestionController {
     UserService userService;
     @Autowired
     CommentService commentService;
-//
-//    @Autowired
-//    FollowService followService;
-//
+    @Autowired
+    FollowService followService;
     @Autowired
     LikeService likeService;
 //
 //    @Autowired
 //    EventProducer eventProducer;
 //
+    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+
     @GetMapping(value = "/question/{qid}")
     public String questionDetail(Model model, @PathVariable("qid") int qid) {
         // 拿到qid对应的question
@@ -60,28 +58,26 @@ public class QuestionController {
             comments.add(vo);
         }
         model.addAttribute("comments", comments);
-//
-//        List<ViewObject> followUsers = new ArrayList<ViewObject>();
-//        // 获取关注的用户信息
-//        List<Integer> users = followService.getFollowers(EntityType.ENTITY_QUESTION, qid, 20);
-//        for (Integer userId : users) {
-//            ViewObject vo = new ViewObject();
-//            User u = userService.getUser(userId);
-//            if (u == null) {
-//                continue;
-//            }
-//            vo.set("name", u.getName());
-//            vo.set("headUrl", u.getHeadUrl());
-//            vo.set("id", u.getId());
-//            followUsers.add(vo);
-//        }
-//        model.addAttribute("followUsers", followUsers);
-//        if (hostHolder.getUser() != null) {
-//            model.addAttribute("followed", followService.isFollower(hostHolder.getUser().getId(), EntityType.ENTITY_QUESTION, qid));
-//        } else {
-//            model.addAttribute("followed", false);
-//        }
-//
+        List<ViewObject> followUsers = new ArrayList<>();
+        // 获取关注的用户信息
+        List<Integer> users = followService.getFollowers(EntityType.ENTITY_QUESTION, qid, 20);
+        for (Integer userId : users) {
+            ViewObject vo = new ViewObject();
+            User u = userService.getUser(userId);
+            if (u == null) {
+                continue;
+            }
+            vo.set("name", u.getName());
+            vo.set("headUrl", u.getHeadUrl());
+            vo.set("id", u.getId());
+            followUsers.add(vo);
+        }
+        model.addAttribute("followUsers", followUsers);
+        if (hostHolder.getUser() != null) {
+            model.addAttribute("followed", followService.isFollower(hostHolder.getUser().getId(), EntityType.ENTITY_QUESTION, qid));
+        } else {
+            model.addAttribute("followed", false);
+        }
         return "detail";
     }
 
