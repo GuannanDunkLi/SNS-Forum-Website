@@ -43,6 +43,7 @@ public class HomeController {
             vo.set("followed", false);
         }
         model.addAttribute("profileUser", vo);
+        model.addAttribute("vos", getQuestions(userId, 0, 10));
         return "profile";
     }
 

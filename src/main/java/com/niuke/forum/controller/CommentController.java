@@ -1,8 +1,8 @@
 package com.niuke.forum.controller;
 
-//import com.nowcoder.async.EventModel;
-//import com.nowcoder.async.EventProducer;
-//import com.nowcoder.async.EventType;
+import com.niuke.forum.async.EventModel;
+import com.niuke.forum.async.EventProducer;
+import com.niuke.forum.async.EventType;
 
 import com.niuke.forum.model.Comment;
 import com.niuke.forum.model.EntityType;
@@ -15,9 +15,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 
@@ -30,8 +27,8 @@ public class CommentController {
     CommentService commentService;
     @Autowired
     QuestionService questionService;
-//    @Autowired
-//    EventProducer eventProducer;
+    @Autowired
+    EventProducer eventProducer;
 
     @PostMapping(value = {"/addComment"})
     public String addComment(int questionId, String content) {
@@ -51,8 +48,8 @@ public class CommentController {
             // 更新question的评论数
             int count = commentService.getCommentCount(comment.getEntityId(), comment.getEntityType());
             questionService.updateCommentCount(comment.getEntityId(), count);
-//            eventProducer.fireEvent(new EventModel(EventType.COMMENT).setActorId(comment.getUserId())
-//                    .setEntityId(questionId));
+            // 推送异步事件
+            eventProducer.fireEvent(new EventModel(EventType.COMMENT).setActorId(comment.getUserId()).setEntityId(questionId));
         } catch (Exception e) {
             logger.error("增加评论失败" + e.getMessage());
         }
