@@ -28,47 +28,47 @@ Springboot+Mybatis+Thymeleaf开发，数据库使用Mysql+redis，异步框架�
 
 ## 用户注册登录管理
 
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/log.png)
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/navigator1.png)
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/navigator2.png)
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/navigator3.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/log.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/navigator1.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/navigator2.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/navigator3.png)
 
 ## 问题发布，敏感词过滤，问题广场
 
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/question.png)
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/sensitive.png)
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/page.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/question.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/sensitive.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/page.png)
 
 ## 评论中心，站内信
 
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/comment.png)
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/message.png)
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/message1.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/comment.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/message.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/message1.png)
 
 ## Redis实现赞踩功能
 
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/like.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/like.png)
 
 ## 异步设计
 
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/asynchronous.jpg)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/asynchronous.jpg)
 
 ## sns关注功能，关注和粉丝列表页实现
 
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/profile.png)
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/follow.png)
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/followQuestion.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/profile.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/follow.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/followQuestion.png)
 
 ## timeline（新鲜事）实现
 
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/feed.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/feed.png)
 
 ## python爬虫实现数据抓取和导入
 
-现有数据使用Pyspider爬取自[https://www.v2ex.com/](https://www.v2ex.com/)  Pyspider代码见：[Pyspider代码](https://github.com/tcxiaotudou/zhihu/blob/master/src/main/resources/Spider.py)
+现有数据使用Pyspider爬取自[https://www.v2ex.com/](https://www.v2ex.com/)  Pyspider代码见：[Pyspider代码](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/Spider.py)
 
 ## 站内全文搜索
 
-![img](https://github.com/GuannanDunkLi/forum/src/main/resources/static/images/img/search.png)
+![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/search.png)
 
 
