@@ -8,15 +8,15 @@ Springboot+Mybatis+Thymeleaf开发，数据库使用Mysql+redis，异步框架�
 
 [1. 用户注册登录管理](#用户注册登录管理)
 
-[2. 问题发布 敏感词过滤 问题广场](#问题发布 敏感词过滤 问题广场)
+[2. 问题管理](#问题管理)
 
-[3. 评论中心 站内信](#评论中心 站内信)
+[3. 评论中心与站内信](#评论中心与站内信)
 
 [4. Redis实现赞踩功能](#Redis实现赞踩功能)
 
 [5. 异步设计](#异步设计)
 
-[6. sns关注功能 关注和粉丝列表页实现](#sns关注功能 关注和粉丝列表页实现)
+[6. sns关注功能和粉丝列表页实现](#sns关注功能和粉丝列表页实现)
 
 [7. timeline新鲜事实现](#timeline新鲜事实现)
 
@@ -44,7 +44,7 @@ Springboot+Mybatis+Thymeleaf开发，数据库使用Mysql+redis，异步框架�
 
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/navigator3.png)
 
-## 问题发布 敏感词过滤 问题广场
+## 问题管理
 
 **问题发布：**
 
@@ -58,7 +58,7 @@ Springboot+Mybatis+Thymeleaf开发，数据库使用Mysql+redis，异步框架�
 
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/page.png)
 
-## 评论中心 站内信
+## 评论中心与站内信
 
 **评论页面：**
 
@@ -84,7 +84,7 @@ Springboot+Mybatis+Thymeleaf开发，数据库使用Mysql+redis，异步框架�
 
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/asynchronous.jpg)
 
-## sns关注功能 关注和粉丝列表页实现
+## sns关注功能和粉丝列表页实现
 
 **用户关注：**
 
