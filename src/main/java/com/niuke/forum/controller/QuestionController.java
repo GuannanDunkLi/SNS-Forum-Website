@@ -68,7 +68,7 @@ public class QuestionController {
                 continue;
             }
             vo.set("name", u.getName());
-            vo.set("headUrl", u.getHeadUrl());
+            vo.set("headUrl", u.getHead_url());
             vo.set("id", u.getId());
             followUsers.add(vo);
         }
@@ -88,13 +88,13 @@ public class QuestionController {
             // 创建Question对象
             Question question = new Question();
             question.setContent(content);
-            question.setCommentCount(0);
-            question.setCreatedDate(new Date());
+            question.setComment_count(0);
+            question.setCreated_date(new Date());
             question.setTitle(title);
             if (hostHolder.getUser() == null) {
                 return ForumUtil.getJsonString(999); // 前端收到999会执行登陆跳转
             } else {
-                question.setUserId(hostHolder.getUser().getId());
+                question.setUser_id(hostHolder.getUser().getId());
             }
             // Question对象入库
             if (questionService.addQuestion(question) > 0) {

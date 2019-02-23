@@ -40,7 +40,7 @@ public class UserService {
         user = new User();
         user.setName(username);
         user.setSalt(UUID.randomUUID().toString().substring(0,5));
-        user.setHeadUrl(String.format("http://images.nowcoder.com/head/%dt.png", new Random().nextInt(1000)));
+        user.setHead_url(String.format("http://images.nowcoder.com/head/%dt.png", new Random().nextInt(1000)));
         user.setPassword(ForumUtil.MD5(password + user.getSalt())); // 密码加salt再用MD5加密，安全性更高
         userDAO.addUser(user);
         // 注册完成下发ticket之后自动登录

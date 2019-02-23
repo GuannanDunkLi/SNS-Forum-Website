@@ -1,5 +1,8 @@
 package com.niuke.forum.model;
 
+import org.springframework.data.elasticsearch.annotations.Document;
+
+@Document(indexName = "forum", type = "user")
 public class User {
     private int id;
     private String name;
@@ -31,11 +34,11 @@ public class User {
         this.salt = salt;
     }
 
-    public String getHeadUrl() {
+    public String getHead_url() {
         return head_url;
     }
 
-    public void setHeadUrl(String headUrl) {
+    public void setHead_url(String headUrl) {
         this.head_url = headUrl;
     }
 
@@ -45,9 +48,5 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String userDescription() {
-        return "This is " + name;
     }
 }

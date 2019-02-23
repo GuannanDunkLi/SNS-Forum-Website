@@ -33,7 +33,7 @@ public class InitDatabaseTests {
 
 		for(int i=0; i<11; ++i){
 			User user = new User();
-			user.setHeadUrl(String.format("http://images.nowcoder.com/head/%dt.png", random.nextInt(1000)));
+			user.setHead_url(String.format("http://images.nowcoder.com/head/%dt.png", random.nextInt(1000)));
 			user.setName(String.format("USER%d",i+1));
 			user.setPassword("XX");
 			user.setSalt("");
@@ -45,11 +45,11 @@ public class InitDatabaseTests {
 			}
 
 			Question question = new Question();
-			question.setCommentCount(i+1);
+			question.setComment_count(i+1);
 			Date date = new Date();
 			date.setTime(date.getTime() + 60*60*1000*i);
-			question.setCreatedDate(date);
-			question.setUserId(i+1);
+			question.setCreated_date(date);
+			question.setUser_id(i+1);
 			question.setTitle(String.format("Title%d",i+1));
 			question.setContent(String.format("Content %d",i+1));
 			questionDAO.addQuestion(question);

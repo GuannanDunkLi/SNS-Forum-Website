@@ -1,7 +1,9 @@
 package com.niuke.forum.model;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.util.Date;
 
+@Document(indexName = "forum", type = "question")
 public class Question {
     private int id;
     private String title;
@@ -34,27 +36,27 @@ public class Question {
         this.content = content;
     }
 
-    public Date getCreatedDate() {
+    public Date getCreated_date() {
         return created_date;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreated_date(Date createdDate) {
         this.created_date = createdDate;
     }
 
-    public int getUserId() {
+    public int getUser_id() {
         return user_id;
     }
 
-    public void setUserId(int userId) {
+    public void setUser_id(int userId) {
         this.user_id = userId;
     }
 
-    public int getCommentCount() {
+    public int getComment_count() {
         return comment_count;
     }
 
-    public void setCommentCount(int commentCount) {
+    public void setComment_count(int commentCount) {
         this.comment_count = commentCount;
     }
 }

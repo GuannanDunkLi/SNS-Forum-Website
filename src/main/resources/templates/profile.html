@@ -34,7 +34,7 @@
 
             <a th:if="${user!=null}" th:href="'/user/'+${user.id}" href="" class="zu-top-nav-userinfo " id=":0" role="button" aria-haspopup="true" aria-activedescendant="">
                 <span th:text="${user.name}" class="name">$!{user.name}</span>
-                <img th:alt="${user.name}" th:src="${user.headUrl}" class="Avatar" src="$!{user.headUrl}" alt="$!{user.name}">
+                <img th:alt="${user.name}" th:src="${user.head_url}" class="Avatar" src="$!{user.head_url}" alt="$!{user.name}">
                 <span id="zh-top-nav-new-pm" class="zg-noti-number zu-top-nav-pm-count" style="visibility:hidden" data-count="0">
                     </span>
             </a>
@@ -166,7 +166,7 @@
 
                                 </div>
                                 <a th:attr="title=${profileUser.get('user').name}" title="Barty" class="zm-item-link-avatar" th:href="'/user/'+${profileUser.get('user').id}" href="">
-                                    <img th:src="${profileUser.get('user').headUrl}" src="" class="zm-item-img-avatar">
+                                    <img th:src="${profileUser.get('user').head_url}" src="" class="zm-item-img-avatar">
                                 </a>
                                 <div class="zm-list-content-medium">
                                     <h2 class="zm-list-content-title"><a th:text="${profileUser.get('user').name}" data-tip="p$t$buaabarty" th:href="'/user/'+${profileUser.get('user').id}" href="" class="zg-link"></a></h2>
@@ -177,7 +177,7 @@
                                         /
                                         <a target="_blank" th:text="${profileUser.get('followeeCount')}+'关注'" th:href="'/user/'+${profileUser.get('user').id}+'/followees'" href="" class="zg-link-gray-normal">10关注</a>
                                         /
-                                        <a th:text="${profileUser.get('commentCount')}+' 回答'" target="_blank" href="#" class="zg-link-gray-normal">10 回答</a>
+                                        <a th:text="${profileUser.get('comment_count')}+' 回答'" target="_blank" href="#" class="zg-link-gray-normal">10 回答</a>
                                         /
                                         <a target="_blank" href="#" class="zg-link-gray-normal">548 赞同</a>
                                     </div>
@@ -206,7 +206,7 @@
                             <div class="feed-item-inner">
                                 <div class="avatar">
                                     <a th:attr="title=${vo.get('user').name}" th:href="'/user/'+${vo.get('user').id}" title="" data-tip="p$t$amuro1230" class="zm-item-link-avatar" target="_blank" href="">
-                                        <img th:src="${vo.get('user').headUrl}" src="" class="zm-item-img-avatar"></a>
+                                        <img th:src="${vo.get('user').head_url}" src="" class="zm-item-img-avatar"></a>
                                 </div>
                                 <div class="feed-main">
                                     <div class="feed-content" data-za-module="AnswerItem">
@@ -222,7 +222,7 @@
                                                 <a th:text="${vo.get('followCount')}"class="zm-item-vote-count js-expand js-vote-count" href="javascript:;" data-bind-votecount="">0</a></div>
                                             <div class="zm-item-answer-author-info">
                                                 <a th:text="${vo.get('user').name}" th:href="'/user/'+${vo.get('user').id}" class="author-link" data-tip="p$b$amuro1230" target="_blank" href="">name</a>
-                                                [['，'+${#dates.format(vo.get('question').createdDate,'yyyy年MM月dd日 HH:mm:ss')}]]</div>
+                                                [['，'+${#dates.format(vo.get('question').created_date,'yyyy年MM月dd日 HH:mm:ss')}]]</div>
                                             <div class="zm-item-vote-info" data-votecount="4168" data-za-module="VoteInfo">
                                                 <span class="voters text">
                                                     <a href="#" class="more text">
@@ -237,7 +237,7 @@
                                                 <div class="zm-meta-panel">
                                                     <a data-follow="q:link" class="follow-link zg-follow meta-item" href="javascript:;" id="sfb-123114">
                                                         <i class="z-icon-follow"></i>关注问题</a>
-                                                    <a th:text="${vo.get('question').commentCount}+' 条评论'" href="#" name="addcomment" class="meta-item toggle-comment js-toggleCommentBox">
+                                                    <a th:text="${vo.get('question').comment_count}+' 条评论'" href="#" name="addcomment" class="meta-item toggle-comment js-toggleCommentBox">
                                                         <i class="z-icon-comment"></i>0 条评论</a>
 
 

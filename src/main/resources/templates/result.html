@@ -34,7 +34,7 @@
 
             <a th:if="${user!=null}" th:href="'/user/'+${user.id}" href="" class="zu-top-nav-userinfo " id=":0" role="button" aria-haspopup="true" aria-activedescendant="">
                 <span th:text="${user.name}" class="name">$!{user.name}</span>
-                <img th:alt="${user.name}" th:src="${user.headUrl}" class="Avatar" src="$!{user.headUrl}" alt="$!{user.name}">
+                <img th:alt="${user.name}" th:src="${user.head_url}" class="Avatar" src="$!{user.head_url}" alt="$!{user.name}">
                 <span id="zh-top-nav-new-pm" class="zg-noti-number zu-top-nav-pm-count" style="visibility:hidden" data-count="0">
                     </span>
             </a>
@@ -163,7 +163,7 @@
                                     </div>
                                     <div class="entry-body">
                                         <div class="entry-meta">
-                                            <strong class="author-line"><a th:text="${vo.get('user').name}" th:href="'/user/'+${vo.get('user').id}" class="author" href="">username</a>[['，'+${#dates.format(vo.get('question').createdDate,'yyyy年MM月dd日 HH:mm:ss')}]]</strong>
+                                            <strong class="author-line"><a th:text="${vo.get('user').name}" th:href="'/user/'+${vo.get('user').id}" class="author" href="">username</a>[['，'+${#dates.format(vo.get('question').created_date,'yyyy年MM月dd日 HH:mm:ss')}]]</strong>
                                         </div>
                                         <div class="entry-content js-collapse-body">
                                             <div th:text="${vo.get('question').content}" class="summary hidden-expanded" style="">
@@ -176,7 +176,6 @@
                         </ul>
                     </div>
                 </li>
-
             </ul>
 
             <nav aria-label="...">

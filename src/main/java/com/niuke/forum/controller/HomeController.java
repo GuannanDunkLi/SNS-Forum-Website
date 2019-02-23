@@ -61,7 +61,7 @@ public class HomeController {
             vo.set("question", question);
             //问题关注的数量
             vo.set("followCount", followService.getFollowerCount(EntityType.ENTITY_QUESTION, question.getId()));
-            vo.set("user", userService.getUser(question.getUserId()));
+            vo.set("user", userService.getUser(question.getUser_id()));
             vos.add(vo);
         }
         return vos;

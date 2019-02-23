@@ -78,10 +78,10 @@ public class FollowController {
         // 发送异步事件
         eventProducer.fireEvent(new EventModel(EventType.FOLLOW)
                 .setActorId(hostHolder.getUser().getId()).setEntityId(questionId)
-                .setEntityType(EntityType.ENTITY_QUESTION).setEntityOwnerId(q.getUserId()));
+                .setEntityType(EntityType.ENTITY_QUESTION).setEntityOwnerId(q.getUser_id()));
         // 发送用户本人信息用于页面展示
         Map<String, Object> info = new HashMap<>();
-        info.put("headUrl", hostHolder.getUser().getHeadUrl());
+        info.put("headUrl", hostHolder.getUser().getHead_url());
         info.put("name", hostHolder.getUser().getName());
         info.put("id", hostHolder.getUser().getId());
         info.put("count", followService.getFollowerCount(EntityType.ENTITY_QUESTION, questionId));
@@ -103,7 +103,7 @@ public class FollowController {
         // 发送异步事件
         eventProducer.fireEvent(new EventModel(EventType.UNFOLLOW)
                 .setActorId(hostHolder.getUser().getId()).setEntityId(questionId)
-                .setEntityType(EntityType.ENTITY_QUESTION).setEntityOwnerId(q.getUserId()));
+                .setEntityType(EntityType.ENTITY_QUESTION).setEntityOwnerId(q.getUser_id()));
         // 发送用户本人信息用于页面展示
         Map<String, Object> info = new HashMap<>();
         info.put("id", hostHolder.getUser().getId());

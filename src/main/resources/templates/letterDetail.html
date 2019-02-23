@@ -34,7 +34,7 @@
 
             <a th:if="${user!=null}" th:href="'/user/'+${user.id}" href="" class="zu-top-nav-userinfo " id=":0" role="button" aria-haspopup="true" aria-activedescendant="">
                 <span th:text="${user.name}" class="name">$!{user.name}</span>
-                <img th:alt="${user.name}" th:src="${user.headUrl}" class="Avatar" src="$!{user.headUrl}" alt="$!{user.name}">
+                <img th:alt="${user.name}" th:src="${user.head_url}" class="Avatar" src="$!{user.head_url}" alt="$!{user.name}">
                 <span id="zh-top-nav-new-pm" class="zg-noti-number zu-top-nav-pm-count" style="visibility:hidden" data-count="0">
                     </span>
             </a>
@@ -150,7 +150,7 @@
 
             <li th:each="message:${messages}" id="msg-item-4009580">
                 <a class="list-head">
-                    <img alt="头像" th:src="@{${message.get('user').headUrl}}" src="">
+                    <img alt="头像" th:src="@{${message.get('user').head_url}}" src="">
                 </a>
                 <div class="tooltip fade right in">
                     <div class="tooltip-arrow"></div>

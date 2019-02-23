@@ -34,7 +34,7 @@
 
             <a th:if="${user!=null}" th:href="'/user/'+${user.id}" href="" class="zu-top-nav-userinfo " id=":0" role="button" aria-haspopup="true" aria-activedescendant="">
                 <span th:text="${user.name}" class="name">$!{user.name}</span>
-                <img th:alt="${user.name}" th:src="${user.headUrl}" class="Avatar" src="$!{user.headUrl}" alt="$!{user.name}">
+                <img th:alt="${user.name}" th:src="${user.head_url}" class="Avatar" src="$!{user.head_url}" alt="$!{user.name}">
                 <span id="zh-top-nav-new-pm" class="zg-noti-number zu-top-nav-pm-count" style="visibility:hidden" data-count="0">
                     </span>
             </a>
@@ -195,7 +195,7 @@
 
                             <a th:each="followUser:${followUsers}" th:href="'/user/'+${followUser.get('id')}" data-tip="p$b$yi-yi-98-91-99" class="zm-item-link-avatar" href=""
                                th:attr="data-original_title=${followUser.get('name')}" data-original_title="奕奕">
-                                <img th:src="${followUser.get('headUrl')}" src=""
+                                <img th:src="${followUser.get('head_url')}" src=""
                                      class="zm-item-img-avatar">
                             </a>
 
@@ -241,7 +241,7 @@
                     <div class="answer-head">
                         <div class="zm-item-answer-author-info">
                             <a class="zm-item-link-avatar avatar-link" th:href="'/user/'+${comment.get('user').id}" href="" target="_blank" data-tip="p$t$yingxiaodao">
-                                <img th:src="${comment.get('user').headUrl}" src="" class="zm-list-avatar avatar"></a>
+                                <img th:src="${comment.get('user').head_url}" src="" class="zm-list-avatar avatar"></a>
                             <a th:text="${comment.get('user').name}" th:href="'/user/'+${comment.get('user').id}" class="author-link" data-tip="p$t$yingxiaodao" target="_blank" href=""></a>
                         </div>
                         <div class="zm-item-vote-info">

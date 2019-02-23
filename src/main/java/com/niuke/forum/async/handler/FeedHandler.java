@@ -34,7 +34,7 @@ public class FeedHandler implements EventHandler {
             return null;
         }
         map.put("userId", String.valueOf(actor.getId()));
-        map.put("userHead", actor.getHeadUrl());
+        map.put("userHead", actor.getHead_url());
         map.put("userName", actor.getName());
         // 当评论一个问题或关注一个问题（不考虑关注人）的时候
         if (model.getType() == EventType.COMMENT || (model.getType() == EventType.FOLLOW && model.getEntityType() == EntityType.ENTITY_QUESTION)) {
