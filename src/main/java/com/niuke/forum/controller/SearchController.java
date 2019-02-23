@@ -49,17 +49,10 @@ public class SearchController {
             List<Question> questionList = searchService.testSearch(keyword, offset, 10);
             List<ViewObject> vos = new ArrayList<>();
             for (Question question : questionList) {
-                Question q = questionService.selectQuestionById(question.getId());
                 ViewObject vo = new ViewObject();
-                if (question.getContent() != null) {
-                    q.setContent(question.getContent());
-                }
-                if (question.getTitle() != null) {
-                    q.setTitle(question.getTitle());
-                }
-                vo.set("question", q);
+                vo.set("question", question);
                 vo.set("followCount", followService.getFollowerCount(EntityType.ENTITY_QUESTION, question.getId()));
-                vo.set("user", userService.getUser(q.getUser_id()));
+                vo.set("user", userService.getUser(question.getUser_id()));
                 vos.add(vo);
             }
             model.addAttribute("vos", vos);
