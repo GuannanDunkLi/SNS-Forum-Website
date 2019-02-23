@@ -28,48 +28,64 @@ Springboot+Mybatis+Thymeleaf开发，数据库使用Mysql+redis，异步框架�
 
 ## 用户注册登录管理
 
+登陆界面：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/log.png)
 
+导航栏（登陆前）：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/navigator1.png)
 
+导航栏（登陆后）：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/navigator2.png)
 
+个人信息导航：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/navigator3.png)
 
 ## 问题发布，敏感词过滤，问题广场
 
+问题发布：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/question.png)
 
+敏感词过滤（内容已被过滤）：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/sensitive.png)
 
+问题广场（首页显示）：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/page.png)
 
 ## 评论中心，站内信
 
+评论页面：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/comment.png)
 
+个人站内信：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/message.png)
 
+站内信详情：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/message1.png)
 
 ## Redis实现赞踩功能
 
+评论的赞踩：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/like.png)
 
 ## 异步设计
 
+异步设计原理：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/asynchronous.jpg)
 
 ## sns关注功能，关注和粉丝列表页实现
 
+用户关注：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/profile.png)
 
+关注列表：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/follow.png)
 
+问题关注：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/followQuestion.png)
 
 ## timeline（新鲜事）实现
 
+新鲜事（目前只有关注、评论问题被列为新鲜事）：
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/feed.png)
 
 ## python爬虫实现数据抓取和导入
@@ -78,6 +94,7 @@ Springboot+Mybatis+Thymeleaf开发，数据库使用Mysql+redis，异步框架�
 
 ## 站内全文搜索
 
+全文搜索（ElasticSearch）
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/search.png)
 
 
