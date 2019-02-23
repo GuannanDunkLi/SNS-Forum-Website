@@ -8,17 +8,17 @@ Springboot+Mybatis+Thymeleaf开发，数据库使用Mysql+redis，异步框架�
 
 [1. 用户注册登录管理](#用户注册登录管理)
 
-[2. 问题发布,敏感词过滤,问题广场](#问题发布，敏感词过滤，问题广场)
+[2. 问题发布,敏感词过滤,问题广场](#问题发布,敏感词过滤,问题广场)
 
-[3. 评论中心,站内信](#评论中心，站内信)
+[3. 评论中心,站内信](#评论中心,站内信)
 
 [4. Redis实现赞踩功能](#Redis实现赞踩功能)
 
 [5. 异步设计](#异步设计)
 
-[6. sns关注功能,关注和粉丝列表页实现](#sns关注功能，关注和粉丝列表页实现)
+[6. sns关注功能,关注和粉丝列表页实现](#sns关注功能,关注和粉丝列表页实现)
 
-[7. timeline（新鲜事）实现](#timeline（新鲜事）实现)
+[7. timeline新鲜事实现](#timeline新鲜事实现)
 
 [8. python爬虫实现数据抓取和导入](#python爬虫实现数据抓取和导入)
 
@@ -98,7 +98,7 @@ Springboot+Mybatis+Thymeleaf开发，数据库使用Mysql+redis，异步框架�
 
 ![img](https://github.com/GuannanDunkLi/forum/blob/master/src/main/resources/static/images/img/followQuestion.png)
 
-## timeline（新鲜事）实现
+## timeline新鲜事实现
 
 **新鲜事（目前只有关注、评论问题被列为新鲜事）：**
 
