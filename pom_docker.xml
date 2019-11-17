@@ -93,7 +93,7 @@
                     <imageTags>
                         <imageTag>${project.version}</imageTag>
                     </imageTags>
-                    <!--<imageName>${project.artifactId}:${project.version}</imageName>-->
+                    <imageName>${project.artifactId}:${project.version}</imageName>
                     <!--构建镜像的配置信息-->
                     <resources>
                         <resource>
