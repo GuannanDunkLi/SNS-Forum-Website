@@ -27,7 +27,7 @@ public class HomeController {
     @Autowired
     HostHolder hostHolder;
 
-    // test
+    // Jenkins test
     @GetMapping(value = "/user/{userId}")
     public String userIndex(Model model, @PathVariable("userId") int userId) {
         model.addAttribute("vos", getQuestions(userId, 0, 10));
