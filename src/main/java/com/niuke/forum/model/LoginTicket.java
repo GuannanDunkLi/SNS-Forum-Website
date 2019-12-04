@@ -1,51 +1,20 @@
 package com.niuke.forum.model;
 
+import lombok.Data;
+import tk.mybatis.mapper.annotation.KeySql;
+
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
+@Data
+@Table(name = "login_ticket")
 public class LoginTicket {
-    private int id;
-    private int user_id;
+    @Id
+    @KeySql(useGeneratedKeys = true)
+    private Integer id;
+    private Integer user_id;
     private Date expired;
-    private int status; // 0有效，1无效
+    private Integer status; // 0有效，1无效(0 is valid, 1 is invalid)
     private String ticket;
-
-    public String getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(String ticket) {
-        this.ticket = ticket;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getUserId() {
-        return user_id;
-    }
-
-    public void setUserId(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public Date getExpired() {
-        return expired;
-    }
-
-    public void setExpired(Date expired) {
-        this.expired = expired;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
 }

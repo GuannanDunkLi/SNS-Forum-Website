@@ -1,10 +1,9 @@
 package com.niuke.forum.service;
 
-import com.niuke.forum.dao.LoginTicketDAO;
-import com.niuke.forum.dao.UserDAO;
+import com.niuke.forum.dao.LoginTicketMapper;
+import com.niuke.forum.dao.UserMapper;
 import com.niuke.forum.model.User;
 import com.niuke.forum.model.LoginTicket;
-//import com.springboot.springboot.utils.ForumUtil;
 import com.niuke.forum.utils.ForumUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,89 +14,98 @@ import java.util.*;
 @Service
 public class UserService {
     @Autowired
-    UserDAO userDAO;
+    UserMapper userMapper;
     @Autowired
-    LoginTicketDAO lTicketsDAO;
+    LoginTicketMapper loginTicketMapper;
 
-    // 注册
-    public Map<String,String > register(String username,String password){
-        Map<String,String> map = new HashMap<>();
-        // 后台的简单判断
-        if(StringUtils.isEmpty(username)){
-            map.put("msg", "用户名不能为空");
+    public Map<String, String> register(String username, String password) {
+        Map<String, String> map = new HashMap<>();
+
+        // 注册信息简单判断(Simple verification of register)
+        if (StringUtils.isEmpty(username)) {
+            map.put("msg", "the username cannot be null");
             return map;
         }
-        if(StringUtils.isEmpty(password)){
-            map.put("msg","密码不能为空");
-            return  map;
+        if (StringUtils.isEmpty(password)) {
+            map.put("msg", "the password cannot be null");
+            return map;
         }
-        User user = userDAO.selectByName(username);
-        if(user != null){
-            map.put("msg","用户名已被注册");
-            return  map;
+        User user = selectUserByName(username);
+        if (user != null) {
+            map.put("msg", "the username has already registered");
+            return map;
         }
-        // 符合条件便注册用户
+
+        // 符合条件便注册用户(Register users if they meet the conditions)
         user = new User();
         user.setName(username);
-        user.setSalt(UUID.randomUUID().toString().substring(0,5));
-        user.setHead_url(String.format("http://images.nowcoder.com/head/%dt.png", new Random().nextInt(1000)));
-        user.setPassword(ForumUtil.MD5(password + user.getSalt())); // 密码加salt再用MD5加密，安全性更高
-        userDAO.addUser(user);
-        // 注册完成下发ticket之后自动登录
+        user.setSalt(UUID.randomUUID().toString().substring(0, 5));
+        user.setHead_url(String.format("http://images.nowcoder.com/head/%dt.png",
+                new Random().nextInt(1000)));
+        user.setPassword(ForumUtil.MD5(password + user.getSalt()));
+        userMapper.insert(user);
+
+        // 注册完成下发ticket之后自动登录(Sign in automatically after registering and distributing tickets)
         String ticket = addLoginTicket(user.getId());
-        map.put("ticket",ticket);
+        map.put("ticket", ticket);
         return map;
     }
 
-    //登陆
-    public Map<String,Object> login(String username, String password){
-        Map<String,Object> map = new HashMap<>();
-        // 后台简单判断
-        if(StringUtils.isEmpty(username)){
-            map.put("msg","用户名不能为空");
+    public Map<String, String> login(String username, String password) {
+        Map<String, String> map = new HashMap<>();
+
+        // 登陆信息简单判断(Simple verification of login)
+        if (StringUtils.isEmpty(username)) {
+            map.put("msg", "the username cannot be null");
             return map;
         }
-        if(StringUtils.isEmpty(password)){
-            map.put("msg","密码不能为空");
+        if (StringUtils.isEmpty(password)) {
+            map.put("msg", "the password cannot be null");
             return map;
         }
-        User user = userDAO.selectByName(username);
-        if (user == null){
-            map.put("msg","用户名不存在");
+        User user = selectUserByName(username);
+        if (user == null) {
+            map.put("msg", "the username has not registered");
             return map;
         }
-        if (!ForumUtil.MD5(password+user.getSalt()).equals(user.getPassword())) {
-            map.put("msg", "密码错误");
+        if (!ForumUtil.MD5(password + user.getSalt()).equals(user.getPassword())) {
+            map.put("msg", "the password is wrong");
             return map;
         }
-        // 登陆成功下发ticket之后自动登录
+
+        // 登陆成功下发ticket之后自动登录(Log in automatically after the ticket is issued successfully)
         String ticket = addLoginTicket(user.getId());
-        map.put("ticket",ticket);
+        map.put("ticket", ticket);
         return map;
     }
 
-    public String addLoginTicket(int user_id){
+    public String addLoginTicket(int user_id) {
         LoginTicket ticket = new LoginTicket();
-        ticket.setUserId(user_id);
+        ticket.setUser_id(user_id);
         Date nowDate = new Date();
-        nowDate.setTime(60*60*1000 + nowDate.getTime());
+        nowDate.setTime(60 * 60 * 1000 + nowDate.getTime());
         ticket.setExpired(nowDate);
         ticket.setStatus(0);
-        // UUID生成的随机ticket有"_"，要替换掉
-        ticket.setTicket(UUID.randomUUID().toString().replaceAll("_",""));
-        lTicketsDAO.addTicket(ticket);
-        return ticket.getTicket(); // 返回ticket
+        ticket.setTicket(UUID.randomUUID().toString().replaceAll("_", ""));
+        loginTicketMapper.insert(ticket);
+        return ticket.getTicket();
     }
 
-    public void logout(String ticket){
-        lTicketsDAO.updateStatus(ticket,1);
+    public void logout(String ticket) {
+        LoginTicket loginTicket = new LoginTicket();
+        loginTicket.setTicket(ticket);
+        loginTicket = loginTicketMapper.selectOne(loginTicket);
+        loginTicket.setStatus(1);
+        loginTicketMapper.updateByPrimaryKeySelective(loginTicket);
     }
 
-    public User getUser(int id){
-        return userDAO.selectById(id);
+    public User getUser(int id) {
+        return userMapper.selectByPrimaryKey(id);
     }
 
-    public  User selectUserByName(String name){
-        return userDAO.selectByName(name);
+    public User selectUserByName(String username) {
+        User user = new User();
+        user.setName(username);
+        return userMapper.selectOne(user);
     }
 }
