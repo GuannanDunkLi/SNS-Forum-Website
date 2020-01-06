@@ -1,4 +1,4 @@
-# 低仿知乎类SNS+社区问答网站(牛客网高级项目)
+# 低仿知乎类SNS+社区问答网站(牛客网高级项目) / [English version](https://github.com/GuannanDunkLi/forum/blob/master/English.md)
 
 Springboot+Mybatis+Thymeleaf开发，数据库使用Mysql+redis，异步框架处理消息推送，同时使用了Pyspider爬虫进行网站内容数据填充。
 
